@@ -1,28 +1,47 @@
 # bot.py
 import os
-
 import discord
 
 from discord.ext import commands
-"""from dotenv import load_dotenv
+from dotenv import load_dotenv
+
+bot = commands.Bot(command_prefix='^^')
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-"""
-TOKEN = 'NzgzMjg5NjM4Njg4Nzg0Mzk1.X8YlUg.aq92poPvs2OAla7Ngn5goeYOiWw'
-my_pings = []
-bot = commands.Bot(command_prefix='^^')
-client = discord.Client()
 
-@bot.command()
-async def test(ctx, arg):
-    await ctx.send(arg)
-    
+@bot.event
+async def on_ready():
+    print('We have logged in as {0.user}'.format(bot))
+
+
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+
+    if 'hello' in message.content:
+        await message.channel.send('Hello!')
+
+        
 @bot.command()
 async def ping(ctx):
-    await ctx.send('Pong! {0}'.format(round(bot.latency, 1)))
+    await ctx.send('Pong! {0}'.format(round(bot.latency, 1)))        
 
-@client.event
+
+
+my_pings = []
+
+
+@bot.event
+async def ping(ctx):
+    await ctx.send('Pong! {0}'.format(round(bot.latency, 1)))
+"""
+@bot.event
 async def on_message(message):
     if message.author == client.user:
         return
@@ -37,8 +56,5 @@ async def on_message(message):
     mypings = f'mypings'
     if 'mypings' in message.content:
         await message.channel.send(my_pings)
-@client.event
-async def on_ready():
-    print(f'{client.user} has connected Discord!')
-
-client.run(TOKEN)
+"""
+bot.run(TOKEN)
