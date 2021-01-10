@@ -1,26 +1,44 @@
 # bot.py
 import os
-from discord.ext import commands
+
 import discord
-from dotenv import load_dotenv
+
+from discord.ext import commands
+"""from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
+"""
+TOKEN = 'NzgzMjg5NjM4Njg4Nzg0Mzk1.X8YlUg.aq92poPvs2OAla7Ngn5goeYOiWw'
+my_pings = []
+bot = commands.Bot(command_prefix='^^')
+client = discord.Client()
 
-client = commands.Bot(command_prefix="^^")
-@client.event
-async def on_ready():
-    print(f'{client.user} has connected to Discord!')
+@bot.command()
+async def test(ctx, arg):
+    await ctx.send(arg)
+    
+@bot.command()
+async def ping(ctx):
+    await ctx.send('Pong! {0}'.format(round(bot.latency, 1)))
 
 @client.event
 async def on_message(message):
-    if message.author.bot:
+    if message.author == client.user:
         return
-    await client.process_commands(message)
+    if message.author.bot: 
+        return
+    mention = f'<@!{190550937264324608}>'
+    if mention in message.content:
+        await message.channel.send("How dare you mention my creator!")
+        my_pings.append(str(message.author), message.timestamp, message.content)
 
-@client.command()
-async def test(ctx):
-    await ctx.send("reply")
-
+async def on_message(message):
+    mypings = f'mypings'
+    if 'mypings' in message.content:
+        await message.channel.send(my_pings)
+@client.event
+async def on_ready():
+    print(f'{client.user} has connected Discord!')
 
 client.run(TOKEN)
