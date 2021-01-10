@@ -11,7 +11,7 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 """
 TOKEN = 'NzgzMjg5NjM4Njg4Nzg0Mzk1.X8YlUg.aq92poPvs2OAla7Ngn5goeYOiWw'
 my_pings = []
-bot = commands.Bot(command_prefix='er')
+bot = commands.Bot(command_prefix='^^')
 client = discord.Client()
 
 @bot.command()
