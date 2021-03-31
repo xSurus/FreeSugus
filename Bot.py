@@ -3,12 +3,12 @@ import os
 import discord
 
 from discord.ext import commands
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
-bot = commands.Bot(command_prefix='^^')
+bot = commands.Bot(command_prefix='^^', intents=discord.Intents.all())
 
-load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
+#load_dotenv()
+TOKEN = 'NzgzMjg5NjM4Njg4Nzg0Mzk1.X8YlUg.PqRkPnBsTvg8EMcalqO9CfUItmw'
 
 @bot.event
 async def on_ready():
@@ -17,44 +17,31 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
+    await bot.process_commands(message)
     if message.author == bot.user:
         return
 @bot.event
 async def on_message(message):
+    await bot.process_commands(message)
     if message.author == bot.user:
         return
 
     if 'hello' in message.content:
-        await message.channel.send('Hello!')
+        await message.channel.send('Hello! bitch')
 
-        
 @bot.command()
 async def ping(ctx):
-    await ctx.send('Pong! {0}'.format(round(bot.latency, 1)))        
-
-
-
-my_pings = []
-
-
-@bot.event
-async def ping(ctx):
     await ctx.send('Pong! {0}'.format(round(bot.latency, 1)))
-"""
-@bot.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-    if message.author.bot: 
-        return
-    mention = f'<@!{190550937264324608}>'
-    if mention in message.content:
-        await message.channel.send("How dare you mention my creator!")
-        my_pings.append(str(message.author), message.timestamp, message.content)
 
-async def on_message(message):
-    mypings = f'mypings'
-    if 'mypings' in message.content:
-        await message.channel.send(my_pings)
-"""
+    
+@bot.command()
+async def april(ctx, min=1, max=999999999999999999999):
+    await ctx.channel.send("debugging")
+    for member in ctx.guild.members:
+        if min <= member.id < max:
+            try:
+                await member.edit(nick=member.top_role.name, reason="April Fools")
+            except discord.errors.Forbidden:
+                await ctx.channel.send(f"Can't rename {member.name}")
+    await ctx.channel.send(f".pog")
 bot.run(TOKEN)
