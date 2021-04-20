@@ -1,7 +1,7 @@
 # bot.py
 import os
 import discord
-
+from PIL import Image
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -30,15 +30,36 @@ async def hello(message):
 @bot.command()
 async def ping(ctx):
     await ctx.send('Pong! {0}'.format(round(bot.latency, 1)))
-spam = bot.get_channel(768600365602963496)
-place = 819966095070330950
+
+
+""" await ctx.send("so far so good")
+    for x in range(w):
+        for y in range(h):
+            pixList = [x,y]
+            currPix = im.getpixel((x,y))
+            await place.send(f".place setpixel {x}, {y}, {currPix}") 
+"""
+def rgb2hex(r, g, b):
+    return '#{:02x}{:02x}{:02x}'.format(r, g, b)
+
 @bot.command()
-async def draw(ctx, x, y, w, h, random, link):
+async def draw(ctx, image_name, x, y):
+    place = bot.get_channel(819966095070330950)
     await ctx.message.delete()
-    if ctx.author.id != 190550937264324608:
+    if ctx.message.author.id != 190550937264324608:
         return
-    # if (x < 1000 and x >= 0 and y < 1000 and y >= 0 and x + w < 1000 and w > 0 and h+y < 1000 and h >= 0)
-    await spam.send(f'<convert {x} {y} {w} {h} {random}')
+    im = Image.open(f"{image_name}.png")
+    # datalist = list(im.getdata(im.getbands())) # might work not sure yet
+    pixels = im.convert("RGBA").load()
+    h, w = im.size  # height, width, channel
+    pixels_to_draw = []
+
+    for x in range(w):
+        for y in range(h):
+            hex_color = '#%02x%02x%02x' % pixels[x,y][:3]
+            await place.send(f".place setpixel {x} {y} {hex_color}")
+    await ctx.send("Done?")
+    
 
 @bot.command()
 async def speak(ctx, *, text):
