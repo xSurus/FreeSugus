@@ -1,9 +1,0 @@
-/Users/alexanderschlieper/Documents/GitHub/FreeSugus/freeSugus/target/debug/deps/async_tungstenite-fad63d0117423514.rmeta: /Users/alexanderschlieper/.cargo/registry/src/github.com-1ecc6299db9ec823/async-tungstenite-0.9.3/src/lib.rs /Users/alexanderschlieper/.cargo/registry/src/github.com-1ecc6299db9ec823/async-tungstenite-0.9.3/src/compat.rs /Users/alexanderschlieper/.cargo/registry/src/github.com-1ecc6299db9ec823/async-tungstenite-0.9.3/src/handshake.rs /Users/alexanderschlieper/.cargo/registry/src/github.com-1ecc6299db9ec823/async-tungstenite-0.9.3/src/stream.rs /Users/alexanderschlieper/.cargo/registry/src/github.com-1ecc6299db9ec823/async-tungstenite-0.9.3/src/tokio.rs
-
-/Users/alexanderschlieper/Documents/GitHub/FreeSugus/freeSugus/target/debug/deps/async_tungstenite-fad63d0117423514.d: /Users/alexanderschlieper/.cargo/registry/src/github.com-1ecc6299db9ec823/async-tungstenite-0.9.3/src/lib.rs /Users/alexanderschlieper/.cargo/registry/src/github.com-1ecc6299db9ec823/async-tungstenite-0.9.3/src/compat.rs /Users/alexanderschlieper/.cargo/registry/src/github.com-1ecc6299db9ec823/async-tungstenite-0.9.3/src/handshake.rs /Users/alexanderschlieper/.cargo/registry/src/github.com-1ecc6299db9ec823/async-tungstenite-0.9.3/src/stream.rs /Users/alexanderschlieper/.cargo/registry/src/github.com-1ecc6299db9ec823/async-tungstenite-0.9.3/src/tokio.rs
-
-/Users/alexanderschlieper/.cargo/registry/src/github.com-1ecc6299db9ec823/async-tungstenite-0.9.3/src/lib.rs:
-/Users/alexanderschlieper/.cargo/registry/src/github.com-1ecc6299db9ec823/async-tungstenite-0.9.3/src/compat.rs:
-/Users/alexanderschlieper/.cargo/registry/src/github.com-1ecc6299db9ec823/async-tungstenite-0.9.3/src/handshake.rs:
-/Users/alexanderschlieper/.cargo/registry/src/github.com-1ecc6299db9ec823/async-tungstenite-0.9.3/src/stream.rs:
-/Users/alexanderschlieper/.cargo/registry/src/github.com-1ecc6299db9ec823/async-tungstenite-0.9.3/src/tokio.rs:
