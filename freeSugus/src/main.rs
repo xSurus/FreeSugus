@@ -17,11 +17,16 @@ use tracing::{error, info};
 use crate::commands::ping::*;
 use crate::commands::spotify_inf::*;
 
+const CACHE_PATH: &str = ".spotify_cache/";
+
 pub struct ShardManagerContainer;
 
 impl TypeMapKey for ShardManagerContainer {
     type Value = Arc<Mutex<ShardManager>>;
 }
+
+
+
 
 struct Handler;
 
